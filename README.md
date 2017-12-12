@@ -27,7 +27,7 @@ libs           -----
 mysql_table    -----
 
 www            -----
-					admin  -----  页面文件
+					admin  -----  页面文件 基于layui
 					upload -----  文件上传目录
 
 controller.js  路由控件，路由主要文件
@@ -48,3 +48,5 @@ package.json   配置文件
 npm start 开启程序 ！注 默认开启端口为 80端口 可以在app.js 处更改；
 
 访问localhost/admin即可
+
+
