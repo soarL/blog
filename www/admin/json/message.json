@@ -1,0 +1,13 @@
+[{
+    "msgId" : "1111",
+    "userface" : "../../images/userface1.jpg",
+    "userName" : "小王",
+    "userAsk" : "留言测试测试2",
+    "askTime" : "2017-05-27 12:50",
+    "msgReply" : [{
+        "userface" : "../../images/face.jpg",
+        "userName" : "请叫我田哥",
+        "userAsk" : "回复测试",
+        "askTime" : "2017-05-27 13:50"
+    }]
+}]

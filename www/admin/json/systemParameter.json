@@ -1,0 +1,14 @@
+{
+    "cmsName": "后台管理",
+    "version": "1.0.0",
+    "author": "请叫我田哥",
+    "homePage": "www.linzantian.com",
+    "server": "xxx",
+    "dataBase": "xxx",
+    "maxUpload": "2M",
+    "userRights": "总管理员",
+    "description": "这是测试版本",
+    "powerby": "copyright @2017",
+    "record": "无",
+    "keywords": "个人博客,林赞田"
+}

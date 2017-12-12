@@ -1,0 +1,1 @@
+INSERT INTO `user_table` VALUES (1, '271105196', 'c58970f91ec67859a0169484f66556dd', '271105196@qq.com', '男', '超级管理员', '正常使用', '福建省,福州市,台江区', 'javascript,html,Angular,VUE', '2017-11-29', '超级管理员', '123', '18959333600', 'http://www.linzantian.com/upload/1512993433375.jpg', '123123');
