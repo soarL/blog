@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 //创建数据库连接配置
 const pool = mysql.createPool({
-		host:'root',
+		host:'47.52.74.236',
 		user:'root',
 		password:'lin2598056',
 		database:'bolg_database',

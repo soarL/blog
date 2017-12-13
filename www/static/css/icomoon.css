@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'IcoMoon-Free';
-    src: url('../fonts/IcoMoon-Free.ttf') format('truetype');
+    src: url('/static/fonts/IcoMoon-Free.ttf');
     font-weight: normal;
     font-style: normal;
 }
