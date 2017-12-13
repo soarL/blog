@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8,ie=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta itemprop="image" content="http://www.zbboke.com/templets/boke/images/logo.png">
+    <meta name="baidu-site-verification" content="vZpksoimkY" />
+    <meta name="wlhlauth" content="3c53c38ac65f3824cc4fd2352b39b930"/> <!--站长资源认证-->
+    <meta name="keywords" content="个人博客,好看的博客,张兵,张兵博客,张兵个人博客" />
+    <meta name="description" content="个人博客" />
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/style.css" media="all">
+    <link rel="stylesheet" href="./css/swiper.min.css" media="all">
+    <!-- <script type="text/javascript" src="./js/base.loading.js"></script> -->
+  </head>
+  
+  <body class="home blog">
+    <div class="placeholder"></div>   
+<script src="./js/jquery.js"></script>
+<script>
+  window._deel = {
+  maillist: '',
+  maillistCode: '',
+  commenton: 0,
+  roll: [0, 0]
+  }
+</script>
+<script type="text/javascript">$(function() {
+  $(window).scroll(function() {
+    $offset = $('.placeholder').offset(); //不能用自身的div，不然滚动起来会很卡
+    if ($(window).scrollTop() > $offset.top) {
+    $('.header').css({
+      'position': 'fixed',
+      'top': '0px',
+      'left': $offset.left + 'px',
+      'z-index': '999'
+    });
+    $(".container").css({
+      "margin-top": "93px"
+    });
+    } else {
+    $('.header').removeAttr('style');
+    $('.container').removeAttr('style');
+    }
+  });
+  })
+</script> 
+<!--头部开始-->
+<header class="header" style="height: 52px;">
+  <div class="navbar">
+  <p class="logo" >
+    <a href="/" title="张兵个人博客" alt="个人博客"><img style="display: block;" alt="个人博客" src="./img/logo.png"></a></p>
+  <ul class="nav">
+    <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-home"><a href="index.html">首页</a></li>
+    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+      <a href="/about/">关于</a>
+      <ul class="sub-menu">
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/about/">关于我</a></li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/lxw/">友链互换</a></li>
+      </ul>
+    </li>  
+    <li class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-home"><a href="cz.html">成长</a></li>
+    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+      <a href="learning.html">学习</a>
+      <ul class="sub-menu">
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/xx/php/">php</a></li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/xx/html/">html</a></li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/xx/css/">css</a></li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/xx/ajax/">ajax</a></li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a title="Dreamweaver" href="/xx/Dreamweaver/">Dreamw..</a></li>
+        <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/xx/Javascript/">JavaScript</a></li>
+      </ul>
+    </li>  
+    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="photo.html">照片</a></li>
+  　<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/ly/">留言</a></li>
+  </ul>
+  <div class="menu pull-right">
+    <form name="formsearch" action="/plus/search.php" method="get">
+      <input class="search-input" name="q" type="text" id="search-keyword" value="" required="required"  placeholder=" 输入你要找的内容"  />
+      <button type="submit" class="searchbtn search-submit" name="search" title="搜一下"><i class="fa"></i></button>
+    </form>
+  </div>
+  </div>
+</header>
+
+<!--头部结束-->
+<section class="container">
+  <div class="content-wrap">
+    <div class="content">
+      <header class="article-header">
+        <h1 class="article-title"><h1>运算符的作用以及用法的笔记 </h1></h1>  
+        <div class="meta">
+          <span class="muted"><i class="icon-user icon12"></i>张兵</span>
+          <time class="muted"><i class="ico icon-time icon12"></i>2017-10-14</time>
+          <span class="muted"><i class="ico icon-eye-open icon12"></i>182次浏览</span>
+        </div>
+      </header>
+      <article class="article-content">
+        <blockquote>
+        <p> <strong>摘要：</strong>运算符是用于执行程序代码运算，会针对一个以上操作数项目来进行运算。</p>
+        </blockquote>
+        <p><p align="left">
+        <span style="font-size:14px;"><strong>运算符<span style="font-stretch: normal; line-height: 20px; font-family: arial; color: rgb(51, 51, 51);">是用于执行程序代码</span>运算<span style="font-stretch: normal; line-height: 20px; font-family: arial; color: rgb(51, 51, 51);">，会针对一个以上操作数项目来进行</span>运算<font color="#333333" face="Arial">。</font></strong></span></p>
+        <p align="left">
+        <font size="4">一、赋值运算符</font></p>
+        <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p align="left">
+        <font size="2">符号：&nbsp;&ldquo;=&rdquo; </font><font color="#ff0000" size="2">（注意：是从右往左赋值&nbsp; 如&nbsp;&nbsp; a=b&nbsp; 意思就是 b赋值给a）</font></p>
+        </blockquote>
+        <p align="left">
+        <font size="4">二、算术运算符</font></p>
+        <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p>
+        <font color="#008080" size="3">① 单目运算符</font></p>
+        <p>
+        <font size="2">&ldquo;++&rdquo;&ldquo;--&rdquo; </font></p>
+        <p>
+        <font size="2">如：</font></p>
+        <p>
+        <font size="2">&nbsp;i++ &nbsp;i--（先赋值，在运算）</font></p>
+        <p>
+        <font size="3"><font color="#008080">②双目运算符</font></font></p>
+        <p>
+        <font size="2">&ldquo;+&rdquo;&ldquo;-&rdquo;&ldquo;*&rdquo;&ldquo;/&rdquo;&ldquo;%&rdquo;</font></p>
+        <p>
+        <font size="2">加减乘除大家都懂 主要是% </font></p>
+        <p>
+        <font size="2">如：5/2%1 意思就是5除以2=2余1</font></p>
+        <p>
+        <br />
+        <font size="3"><font color="#008080">③三目运算符</font></font></p>
+        <p>
+        <font size="3">如 int a = 3&gt;2? 1:4;</font></p>
+        <p>
+        <font size="2">3大于2吗？ 如果大于就取值1&nbsp; 如果不大于就取值4 然后赋值给变量a</font></p>
+        <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p align="left">
+        &nbsp;</p>
+        </blockquote>
+        </blockquote>
+        <p align="left">
+        <font size="4">三、关系运算符</font></p>
+        <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p align="left">
+        <font size="2">符号：</font></p>
+        <p align="left">
+        <font size="2">&gt; （大于）</font></p>
+        <p align="left">
+        <font size="2">&lt;&nbsp; （小于）</font></p>
+        <p align="left">
+        <font size="2">&gt;=（大于等于）</font></p>
+        <p align="left">
+        <font size="2">&lt;=&nbsp;（小于等于）</font></p>
+        <p align="left">
+        <font size="2">==（等于等于）</font></p>
+        <p align="left">
+        <span style="font-stretch: normal; font-size: 13px; line-height: 20px; font-family: arial; color: rgb(51, 51, 51);">注：（=是赋值&nbsp;</span>==<span style="font-stretch: normal; font-size: 13px; line-height: 20px; font-family: arial; color: rgb(51, 51, 51);">&nbsp;是判断，</span><span style="font-stretch: normal; font-size: 13px; line-height: 20px; font-family: arial; color: rgb(51, 51, 51);">如a=b 就是把b的值赋予给a; a</span>==<span style="font-stretch: normal; font-size: 13px; line-height: 20px; font-family: arial; color: rgb(51, 51, 51);">b 就是判断a等于b）</span></p>
+        </blockquote>
+        <p align="left">
+        <font size="4">四、逻辑运算符</font></p>
+        <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p align="left">
+        符号 ：</p>
+        <p align="left">
+        <font color="#008080" size="3"><strong>&amp;&amp;（短路与）</strong></font></p>
+        <p align="left">
+        &amp;&amp; 可以用作逻辑与的运算符，当运算符两边的表达式的结果都为true时，整个运算结果才为true，否则，</p>
+        <p align="left">
+        只要有一方为false，则结果为false。</p>
+        <p align="left">
+        <font color="#008080" size="3"><strong>&nbsp;||&nbsp; （短路或）</strong></font></p>
+        <p align="left">
+        || 可以作逻辑或运算符，当运算符有一边为true时，整个运算结果为true！</p>
+        <p align="left">
+        <strong><font color="#008080" size="3">！（非）</font></strong></p>
+        <p align="left">
+        <span style="font-stretch: normal; font-size: 13px; line-height: 26px; font-family: arial; color: rgb(51, 51, 51);">!在JAVA中是非的意思，如 ！= 就是不等于，！0就是非0，是逻辑用语if(!0)就是如果真的话&hellip;</span></p>
+        </blockquote>
+        <p align="left">
+        <font size="4">五、布尔类型</font></p>
+        <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+        <p align="left">
+        <font size="2">前面学习了一些<u><strong><a href="http://www.zbboke.com/xx/Javascript/740.html"><span style="color:#000000;">数据类型</span></a></strong></u>，有表示数字的，有表示字符的&hellip;&hellip;但是事物往往还有真假之分，如在判断一件艺术品的时候常说：&ldquo;这是真的或者 这是假的&rdquo;。另外，也会做一些这样的判断：&ldquo;这次考试成绩在90分之上吗？&rdquo;等。 这些问题都需要判断，但是答案却只有&ldquo;真&rdquo;&ldquo;假&rdquo;。程序也一样，有时也要判断真假，这时就需要布尔类型（boolean），是java的关键字，所有字母小写。</font></p>
+        <p align="left">
+        <font size="2">表示方法</font></p>
+        <p align="left">
+        <font size="2">真 ： true</font></p>
+        <p align="left">
+        <font size="2">假 ： false</font><br />
+        &nbsp;&nbsp;<br />
+        总结：本次的学习内容 java中的运算符可以用来比较大小、高低、多少等、比较后的结果是boolean类型！<br />
+        <br />
+        本文由 张兵 <u><strong><a href="http://www.zbboke.com"><span style="color:#000000;">个人博客</span></a></strong></u>原创，如需学习转载，请带上本文链接谢谢！</p>
+        </blockquote>
+        </p>   
+      <!--related:end-->
+      </article>
+      <nav class="article-nav">
+        <span class="article-nav-prev">上一篇：<a href='/xx/Javascript/740.html'>什么是变量,数据类型有哪些？</a> </span>
+        <span class="article-nav-next">下一篇：<a href='/xx/Javascript/742.html'>Java中 为什么要使用if语句，if-else的用法</a></span>
+      </nav>
+          <!--comment:end-->
+    </div>
+  </div>
+
+<!-- 左侧内容 -->
+  <aside class="sidebar">
+    <!-- 热门标签 -->
+    <div class="widget">
+      <h3 class="widget_tit">热门标签</h3>
+        <div class="tag_list">
+          <ul>
+            <li><a href="/plus/search.php?q=ajax&search=" target="_blank">ajax</a></li>
+            <li><a href="/plus/search.php?q=Dreamweaver&search=" target="_blank">Dreamweaver</a></li>
+            <li><a href="/plus/search.php?q=html&search=" target="_blank">html</a></li>
+            <li><a href="/plus/search.php?q=js&search=" target="_blank">js</a></li>
+            <li><a href="/plus/search.php?q=css&search=" target="_blank">css</a></li>
+            <li><a href="/plus/search.php?q=css&search=" target="_blank">搞笑</a></li>
+            <li><a href="/plus/search.php?q=娱乐&search=" target="_blank">娱乐</a></li>
+            <li><a href="/plus/search.php?q=MySQL&search=" target="_blank">MySQL</a></li>
+            <li><a href="/plus/search.php?q=PHP&search=" target="_blank">PHP</a></li>
+            <li><a href="/plus/search.php?q=dedeCMS&search=" target="_blank">dedeCMS</a></li>
+            <li><a href="/plus/search.php?q=张兵&search=" target="_blank">张兵</a></li>
+            <li><a href="/plus/search.php?q=博客&search=" target="_blank">博客</a></li>
+          </ul>
+        </div>
+    </div>
+     <!-- 热门标签 -->   
+    <div class="widget d_postlist">
+      <h3 class="widget_tit">推荐文章</h3>
+      <ul>
+        <li>
+          <a href="/xx/Javascript/745.html">
+            <span class="thumbnail">
+              <img src="./img/1-1G206160430533.png" alt="vue+echarts 动态绘制图表以及异步加载数据" title="vue+echarts 动态绘制图表以及异步加载数据"/>
+            </span>
+            <span class="text">vue+echarts 动态绘制图表以及异步加载数据</span>
+            <span class="muted">2017-12-06</span>
+            <span class="muted">
+                <span class="ds-thread-count" data-replace="1">83次阅读</span>
+            </span>
+            </a>
+        </li>
+        <li>
+          <a href="/cz/743.html">
+            <span class="thumbnail">
+              <img src="./img/1644464127-0-lp.jpg" alt="比较完整的SEO优化方案" title="比较完整的SEO优化方案"/>
+            </span>
+            <span class="text">比较完整的SEO优化方案</span>
+            <span class="muted">2017-10-21</span>
+            <span class="muted">
+              <span class="ds-thread-count" data-replace="1">161次阅读</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/xx/Javascript/739.html">
+            <span class="thumbnail">
+              <img src="./img/1-1FR6151911922.jpg" alt="Java课程第一课，安装Java环境（jdk、jre）和实现第一个Java程序" title="Java课程第一课，安装Java环境（jdk、jre）和实现第一个Java程序"/>
+            </span>
+            <span class="text">Java课程第一课，安装Java环境（jdk、jre）和实现第一个Java程序</span>
+            <span class="muted">2017-10-14</span>
+            <span class="muted">
+              <span class="ds-thread-count" data-replace="1">233次阅读</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/xx/Javascript/740.html">
+            <span class="thumbnail">
+              <img src="./img/1-1F9161F413H6.jpg" alt="什么是变量,数据类型有哪些？" title="什么是变量,数据类型有哪些？"/>
+            </span>
+            <span class="text">什么是变量,数据类型有哪些？</span>
+            <span class="muted">2017-10-14</span>
+            <span class="muted">
+              <span class="ds-thread-count" data-replace="1">207次阅读</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/xx/Javascript/741.html">
+            <span class="thumbnail">
+              <img src="./img/1-1F93009532O46.jpg" alt="运算符的作用以及用法的笔记" title="运算符的作用以及用法的笔记"/>
+            </span>
+            <span class="text">运算符的作用以及用法的笔记</span>
+            <span class="muted">2017-10-14</span>
+            <span class="muted">
+              <span class="ds-thread-count" data-replace="1">58次阅读</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <style>
+      .rmpl{
+        padding: 11px 15px 14px;
+        border-bottom: 1px solid #eaeaea;
+        background-color: #fbfbfb;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 20px;
+      }
+      .pinglun{
+        background:#fff;
+      }
+      #cyHotusers{
+        width:290px;
+        height: 393px;
+        overflow: hidden;
+      }
+      #cyHotusers .hotusers-header{
+        padding:0px !important;
+      }
+      .ys{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+      }
+      .ys1{
+        width:60%;
+        font-size:16px;
+        line-height:30px;
+        display:block;
+        margin:auto;
+      }
+    </style>
+
+    <div class="pinglun"  style="border-radius:5px;box-shadow: 0 1px 3px rgba(0, 0, 0, .1);">
+      <h3 class="rmpl">热评评论</h3>
+      <div id="cyReping" role="cylabs" data-use="reping">
+      </div>
+    </div>
+        
+    <div class="widget d_textbanner" style=" margin-top:10px;box-shadow: 0 1px 3px rgba(0, 0, 0, .1);">
+      <a class="style03" target="_blank" style="padding-bottom:0;">
+        <strong>统计</strong>
+      </a>
+      <p class="ys">
+        <span class="ys1" id="showDays"></span>
+        <span class="ys1">本月更新：<strong style="color:#f00;">8</strong> 篇</span>
+        <span class="ys1">共有文章： <strong style="color:#f00;">710</strong> 篇</span>
+        <span class="ys1" style="padding-bottom:20px;"></span></span></span></span>
+      </p>
+    </div>    
+    <script>
+      var birthDay = new Date("09/17/2016");  // 这里填写网站第一次运行日期
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime(); 
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      total = "<strong style='color:red;'>" + total + "</strong >";
+      document.getElementById("showDays").innerHTML = "本站运行："+total+"天"; //这里就是总运行天数
+    </script>
+
+    <div class="widget d_textbanner" style="margin-top:10px; float: left; width:290px; min-height: 110px;box-shadow: 0 1px 3px rgba(0, 0, 0, .1);">
+      <a class="style03" href="/lxw/"><strong>申请链接</strong></a>
+      <!--友联的width是290px 每个的宽度290/2 = 145； 145-120=25/2=12.5-->
+      <ul class="friendlyLink">
+        <li><a href='http://www.zhouqiuju.com/' target='_blank'>周秋菊个人博客</a> </li>
+      </ul>
+    </div>  
+    <style>
+      .bdsharebuttonbox {
+        margin-left: 10px;
+      }
+      .friendlyLink{
+        float: left; width:290px; min-height: 110px;
+      }
+      .friendlyLink a{
+        display: block;
+        width: 118px;
+        height: 35px;
+        float: left;
+        border: 1px #5CB85C solid;
+        padding: 0px !important;
+        line-height: 35px;
+        text-align: center;
+        color: #5CB85C;
+        transition: all 0.5s;
+        margin: 0px 12.5px 10px 12.5px;
+      }
+      .friendlyLink li a:hover {
+        color: #fff;
+        border-radius: 40px 0px;
+        background: #5CB85C;
+        color: #fff!important;
+      }
+    </style>
+  </aside>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div style="padding:0 20px;overflow:hidden;">
+      <div class="copyright pull-left">
+        <a href="/about/">关于</a> | 
+        <a href="/xx/">学习</a> | 
+        <a href="/tp/">娱乐</a> | 
+        <a href="/cz/">成长</a> | 
+        <a>Copyright © 2016, zhangbing All Rights Reserved. </a>| <a href="http://www.miitbeian.gov.cn/"  target="_blank"  rel="nofollow">苏ICP备16050559号</a>
+        <a target="_blank" href="sitemap.htm">网站地图</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(function(){
+        var scrollDiv = document.createElement('div');
+        $(scrollDiv).attr('id','toTop').html('<ul><li class="backBtn" title="返回顶部"><a href="javascript:;" class="icon_backTo"></a></li></ul>').appendTo('body');
+        $(window).scroll(function(){
+            if($(this).scrollTop() > 300){
+                $('.backBtn').fadeIn();
+            }else{
+                $('.backBtn').fadeOut();
+            }
+        });
+        $('.backBtn').click(function(){
+            $('body,html').animate({scrollTop:0},300);
+        })
+    })
+  });
+</script> 
+
+</body>
+</html> 
