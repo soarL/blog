@@ -3191,7 +3191,7 @@ input[type=submit].btn::-moz-focus-inner {
 	text-decoration: none;
 	cursor: default
 }
-
+/*-----------------*/
 .navbar {
 	margin: 0 auto;
 	width: 1200px;
@@ -3450,7 +3450,7 @@ input.search-input:hover {
 .search-suggest .active span {
 	color: #fff
 }
-
+/*-----------------*/
 .breadcrumb {
 	margin: 0 0 20px;
 	padding: 8px 15px;
