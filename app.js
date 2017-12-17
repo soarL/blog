@@ -3,6 +3,7 @@ const session = require('koa-session');
 const bodyParser = require('koa-bodyparser');
 const router = require('koa-router')();
 const static = require('koa-static');
+const cors = require('koa2-cors');
 
 const controller = require('./controller');
 const common = require('./libs/common');
@@ -29,6 +30,18 @@ const app = new Koa();
 
 //post 数据处理中间件
 app.use(bodyParser());
+
+// 跨域设置
+app.use(cors({
+    origin: function (ctx) {
+            return "*"; // 允许来自所有域名请求
+    },
+    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+    maxAge: 5,
+    credentials: true,
+    allowMethods: ['GET', 'POST', 'DELETE'],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}));
 
 //处理登入
 //登入路由
@@ -76,6 +89,13 @@ router.post('/admin/user/userFace', common.upload.single('userFace'), async (ctx
 
 //添加控制器:
 router.use('/admin',controller('controllers/admin'))
+
+
+//添加控制器:
+router.use('/index',controller('controllers/index'))
+
+//添加控制器:
+router.use('/page',controller('controllers/page'))
 
 
 //静态文件的访问
