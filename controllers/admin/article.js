@@ -50,8 +50,10 @@ let rm =async (ctx,next)=>{
 		for(let i=0;i<data.length;i++){
 			let fileurl = `./www/${data[i].imgSrc.split(".com")[1]}`;
 			fs.unlink(fileurl,(err,data)=>{
-				console.log(err);
-				return
+				if(err){
+					console.log(err);
+					return	
+				}
 			})
 		}
 	})

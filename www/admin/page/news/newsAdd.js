@@ -14,7 +14,8 @@ layui.config({
 		        var index = layer.msg('提交中，请稍候',{icon: 16,time:false,shade:0.8});
 		        if(res.res=='0000'){
 		            layer.close(index);
-		            layer.msg(r.msg);
+		            layer.closeAll("iframe");
+		            parent.location.reload();
 		        }else{
 		            layer.close(index);
 		            layer.msg(r.msg);
@@ -54,8 +55,6 @@ layui.config({
  				   area:['auto','130px'],
  				   content:["./upData.html","no"],
  				   cancel:function(){
- 				   	 layer.closeAll("iframe");
- 				   	 parent.location.reload();
  				   }
  				 });
  			}else {
