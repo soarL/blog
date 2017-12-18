@@ -16,6 +16,21 @@ let list = async(ctx,next)=>{
 				sql = `SELECT * FROM article_table ORDER BY id DESC LIMIT ${ctx.request.body.limit}`;
 			}
 			break;
+		case "javascript":
+			sql = `SELECT * FROM article_table WHERE classify LIKE "%javascript%" ORDER BY id DESC`;
+			break;
+		case "html":
+			sql = `SELECT * FROM article_table WHERE classify LIKE "%html%" ORDER BY id DESC`;
+			break;
+		case "css":
+			sql = `SELECT * FROM article_table WHERE classify LIKE "%css%" ORDER BY id DESC`;
+			break;
+		case "nodejs":
+			sql = `SELECT * FROM article_table WHERE classify LIKE "%nodejs%" ORDER BY id DESC`;
+			break;
+		case "php":
+			sql = `SELECT * FROM article_table WHERE classify LIKE "%php%" ORDER BY id DESC`;
+			break;
 		default:
 			sql = `SELECT * FROM article_table ORDER BY id DESC LIMIT 10`;
 			break;
