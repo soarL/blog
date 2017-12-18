@@ -19,7 +19,7 @@ layui.config({
 			for(var i=0; i <5;i++){
 				hotNewsHtml += '<tr>'
 		    	+'<td align="left">'+r.data[i].newsName+'</td>'
-		    	+'<td>'+r.data[i].newsTime+'</td>'
+		    	+'<td>'+r.data[i].newsTime.split("T")[0]+'</td>'
 		    	+'</tr>';
 			}
 			$(".hot_news").html(hotNewsHtml);

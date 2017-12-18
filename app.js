@@ -54,7 +54,7 @@ router.post('/admin/user/login',async (ctx,next)=>{
 		if(data[0]!=undefined){
 			if(data[0].password == spassword){
 				ctx.session['admin_id']=data[0].id;
-				ctx.response.body = common.msg('0000','登入成功');				
+				ctx.response.body = common.msg('0000','登入成功');
 			}else{
 				ctx.response.body = common.msg('0002','密码错误');
 			}
@@ -85,6 +85,14 @@ router.post('/admin/user/userFace', common.upload.single('userFace'), async (ctx
     	filename: ctx.req.file.filename//返回文件名  
   	}  
   await next();
+})
+
+//文章图片上传路由
+router.post('/admin/article/upImg', common.upload.single('articleFace'), async (ctx, next) => {  
+	ctx.body = {  
+    	filename: ctx.req.file.filename//返回文件名  
+  	}  
+  await next();
 }) 
 
 //添加控制器:
@@ -93,9 +101,6 @@ router.use('/admin',controller('controllers/admin'))
 
 //添加控制器:
 router.use('/index',controller('controllers/index'))
-
-//添加控制器:
-router.use('/page',controller('controllers/page'))
 
 
 //静态文件的访问

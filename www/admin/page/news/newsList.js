@@ -202,7 +202,7 @@ layui.config({
 			    	}else{
 			    		dataHtml += '<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow" data-id="'+data[i].id+'"></td>';
 			    	}
-			    	dataHtml +='<td>'+currData[i].newsTime+'</td>'
+			    	dataHtml +='<td>'+currData[i].newsTime.split("T")[0]+'</td>'
 			    	+'<td>'
 					+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
 					+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+data[i].id+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
