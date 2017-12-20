@@ -102,9 +102,8 @@ router.use('/admin',controller('controllers/admin'))
 //添加控制器:
 router.use('/index',controller('controllers/index'))
 
-
 //静态文件的访问
-app.use(static('./www',{maxage:10*20*1000*2}));
+app.use(static('./www',{maxAge:30*24*60*60*1000}));
 
 
 app.listen(80);
