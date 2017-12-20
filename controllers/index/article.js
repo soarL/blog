@@ -46,8 +46,15 @@ let read = async (ctx,next)=>{
 	let strUrl = ctx.url.split('?')[1];
 	let id = strUrl.split("=")[1];
 
-	let ctxSql = `SELECT CASE WHEN SIGN(id - ${id}) > 0 THEN 'Next' ELSE 'Prev' END AS DIR, CASE WHEN SIGN(id - ${id}) > 0 THEN MIN(id) WHEN SIGN(id - ${id}) < 0 THEN MAX(id) END AS id FROM article_table WHERE id <> ${id} GROUP BY SIGN(id - ${id}) ORDER BY SIGN(id - ${id})`;
+	if(ctx.session[`article_${id}`]!=id){
+		let viewCountSql = `UPDATE article_table SET viewCount=viewCount+1 WHERE id=${id}`;
+		await next();
+		await db(viewCountSql);
+	}
+	ctx.session[`article_${id}`]=id;
 
+	let ctxSql = `SELECT CASE WHEN SIGN(id - ${id}) > 0 THEN 'Next' ELSE 'Prev' END AS DIR, CASE WHEN SIGN(id - ${id}) > 0 THEN MIN(id) WHEN SIGN(id - ${id}) < 0 THEN MAX(id) END AS id FROM article_table WHERE id <> ${id} GROUP BY SIGN(id - ${id}) ORDER BY SIGN(id - ${id})`;
+	
 	let sql = await db(ctxSql)
 	.then((data)=>{
 		if(data.length !=2){
