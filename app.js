@@ -104,8 +104,8 @@ router.use('/index',controller('controllers/index'))
 
 
 //静态文件的访问
-app.use(static('./www',{maxage: '2h'}));
+app.use(static('./www',{maxage:10*20*1000*2}));
 
 
 app.listen(80);
-console.log('app started at port 80...');
+console.log(`app started at port 80...time:${new Date().toLocaleString()}`);
