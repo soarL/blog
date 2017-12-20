@@ -104,7 +104,7 @@ router.use('/index',controller('controllers/index'))
 
 
 //静态文件的访问
-app.use(static('./www'));
+app.use(static('./www',{maxage: '2h'}));
 
 
 app.listen(80);
