@@ -105,6 +105,15 @@ router.use('/index',controller('controllers/index'))
 //静态文件的访问
 app.use(static('./www',{maxAge:30*24*60*60*1000}));
 
+//设置404页面
+app.use(async (ctx,next)=>{
+	if(ctx.url != '/favicon.ico'){
+		if(ctx.response.message == 'Not Found'){
+			ctx.redirect('/page/404.html');
+		}
+	}
+	await next();
+})
 
 app.listen(80);
 console.log(`app started at port 80...time:${new Date().toLocaleString()}`);
