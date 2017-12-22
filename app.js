@@ -70,7 +70,11 @@ app.use(router.routes());
 app.use(async(ctx,next)=>{
 	 if(ctx.url.indexOf('/admin')>=0){
 		 if(!ctx.session['admin_id'] && ctx.url!='/admin/login.html'){
-		 		ctx.redirect('/admin/login.html');
+		 		if(ctx.url.indexOf('/admin/layui/images/face/')>=0){
+		 			await next();
+		 		}else{
+		 			ctx.redirect('/admin/login.html');
+		 		}
 		 	}else {
 		 		await next();
 		 	}
@@ -78,6 +82,9 @@ app.use(async(ctx,next)=>{
 	 	await next();
 	 }
 })
+
+//静态文件的访问
+app.use(static('./www',{maxAge:7*24*60*60*1000}));
 
 //文件上传路由
 router.post('/admin/user/userFace', common.upload.single('userFace'), async (ctx, next) => {  
@@ -102,8 +109,6 @@ router.use('/admin',controller('controllers/admin'))
 //添加控制器:
 router.use('/index',controller('controllers/index'))
 
-//静态文件的访问
-app.use(static('./www',{maxAge:30*24*60*60*1000}));
 
 //设置404页面
 app.use(async (ctx,next)=>{

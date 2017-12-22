@@ -30,7 +30,6 @@ let add = async (ctx,next)=>{
 	})
 }
 
-
 //查询文章的路由
 let read = async (ctx,next)=>{
 	let sql = `SELECT * FROM article_table`;
@@ -94,7 +93,6 @@ let upImg = async(ctx,next)=>{
 		ctx.response.body = common.msg('0000','上传成功',data);
 	})
 }
-
 
 module.exports = {
     'POST /article/add': add,
