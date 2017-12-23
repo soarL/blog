@@ -10,6 +10,25 @@ let read = async (ctx,next)=>{
 	})
 }
 
+let add = async (ctx)=>{
+	var sqlArr    = ['id'];
+	var addSqlArr = [];
+	var sqlValues  = [0]; 
+	for(let i in ctx.query){
+		sqlArr.push(i);
+		addSqlArr.push(ctx.query[i]);
+	};
+	for(let i = 0 ;i < (sqlArr.length - 1);i++){
+		sqlValues.push('?');
+	}
+	let sql = `INSERT INTO link_table(${sqlArr}) VALUES(${sqlValues})`;
+	await db(sql,addSqlArr)
+	.then((data)=>{
+		ctx.response.body = common.msg('0000','提交成功')
+	})
+}
+
 module.exports = {
     'GET /links/read':read,
+    'GET /links/add':add,
 };
