@@ -154,7 +154,7 @@ layui.config({
             replyHtml += '</tr>';
             var data = {
                 "id":$('.rId')[0].dataset.id,
-                "userface" : "../../images/userface3.jpg",
+                "userface" : "http://www.linzantian.com/upload/face/face3.jpg",
                 "userName" : "请叫我田哥",
                 "userAsk" : layedit.getContent(editIndex),
                 "askTime" : formatTime(new Date())
