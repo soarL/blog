@@ -156,6 +156,7 @@ let message = async(ctx,next)=>{
 	let data = ctx.request.body;
 	data.msgReply = null;
 	data.userface = faceArr[common.random(3)];
+	data.askTime = common.Format("yyyy-MM-dd");
 	messageArr.push(data);
 	let addSql = `UPDATE article_table SET message='${JSON.stringify(messageArr)}' WHERE id=${ctx.request.body.id}`;
 	await db(addSql)

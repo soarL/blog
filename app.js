@@ -4,6 +4,7 @@ const bodyParser = require('koa-bodyparser');
 const router = require('koa-router')();
 const static = require('koa-static');
 const cors = require('koa2-cors');
+const fs = require('fs');
 
 const controller = require('./controller');
 const common = require('./libs/common');
@@ -42,6 +43,13 @@ app.use(cors({
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
+
+//获取客户端ip生成日志
+app.use(async(ctx,next)=>{
+	let log = `当前访问的ip:${ctx.request.ip},访问地址：${ctx.request.url},访问时间：${common.Format("yyyy-MM-dd")}`;
+	fs.appendFile('./log.txt',log+'\n');
+	await next();
+})
 
 //处理登入
 //登入路由
