@@ -33,8 +33,7 @@ layui.config({
  		newsTime=$(".newsTime").val(); //发布时间
  		newsAuthor=$(".newsAuthor").val(); //文章作者
  		newSketch = $('#newSketch').val();//文章概要
- 		newsContent = layedit.getContent(editIndex); //文章内容
-
+ 		newsContent = data.field.newsContent; //文章内容
  		var datas = {
  			newsName,
  			newsLook,

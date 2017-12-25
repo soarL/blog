@@ -11,6 +11,9 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="../../css/font_eolqem241z66flxr.css" media="all" />
+	<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"> </script>
 </head>
 <body class="childrenBody">
 	<form class="layui-form">
@@ -64,7 +67,11 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">文章内容</label>
 			<div class="layui-input-block">
-				<textarea class="layui-textarea layui-hide" lay-verify="content" id="news_content" name="test"></textarea>
+				<!-- <textarea class="layui-textarea layui-hide" lay-verify="content" id="news_content" name="test"></textarea> -->
+				<script id="editor" type="text/plain" style="width:1000px;height:500px;" name="newsContent"></script>
+				<script>
+				    var ue = UE.getEditor('editor');
+				</script>
 			</div>
 		</div>
 		<div class="layui-form-item">
