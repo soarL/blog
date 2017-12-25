@@ -140,11 +140,39 @@ let total = async (ctx,next)=>{
 	})
 	ctx.response.body = common.msg("0000",'查询成功',sendData);
 }
+//文章留言
+let message = async(ctx,next)=>{
+	let faceArr = ['http://www.linzantian.com/upload/face/face1.jpg','http://www.linzantian.com/upload/face/face2.jpg','http://www.linzantian.com/upload/face/face3.jpg','http://www.linzantian.com/upload/face/face4.jpg'];
+	var messageArr=[];
+	let sql = `SELECT message FROM article_table WHERE id = ${ctx.request.body.id}`;
+	await db(sql)
+	.then((data)=>{
+		if(data[0].message==null){
+
+		}else{
+			messageArr = JSON.parse(data[0].message);
+		}
+	})
+	let data = ctx.request.body;
+	data.msgReply = null;
+	data.userface = faceArr[common.random(3)];
+	messageArr.push(data);
+	let addSql = `UPDATE article_table SET message='${JSON.stringify(messageArr)}' WHERE id=${ctx.request.body.id}`;
+	await db(addSql)
+	.then((data)=>{
+		ctx.response.body = common.msg('0000','发表成功')
+	})
+	.catch((data)=>{
+		console.log(data);
+		ctx.response.body = common.msg('0002','发表失败')
+	})
+}
 
 module.exports = {
     'GET /article/read':read,
     'POST /article/list':list,
     'GET /article/recommend':recommend,
     'GET /article/host':host,
-    'GET /article/total':total
+    'GET /article/total':total,
+    'POST /article/message':message
 };
