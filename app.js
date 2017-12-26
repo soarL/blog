@@ -4,7 +4,6 @@ const bodyParser = require('koa-bodyparser');
 const router = require('koa-router')();
 const static = require('koa-static');
 const cors = require('koa2-cors');
-const fs = require('fs');
 
 const controller = require('./controller');
 const common = require('./libs/common');
@@ -46,8 +45,8 @@ app.use(cors({
 
 //获取客户端ip生成日志
 app.use(async(ctx,next)=>{
-	let log = `当前访问的ip:${ctx.request.ip},访问地址：${ctx.request.url},访问时间：${common.Format("yyyy-MM-dd")}`;
-	fs.appendFile('./log.txt',log+'\n');
+	let log = `当前访问的ip${ctx.request.ip},访问地址：${ctx.request.url},访问时间：${common.Format("yyyy-MM-dd hh:mm:ss")}`;
+	common.fsAp('./log.txt',log+'\n');
 	await next();
 })
 
@@ -92,7 +91,7 @@ app.use(async(ctx,next)=>{
 })
 
 //静态文件的访问
-app.use(static('./www',{maxAge:7*24*60*60*1000}));
+app.use(static('./www',{maxAge:7*60*60*1000}));
 
 //文件上传路由
 router.post('/admin/user/userFace', common.upload.single('userFace'), async (ctx, next) => {  

@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const multer = require('koa-multer');
+const fsSystem = require('fs');
 
 //md5
 function md5(str){
@@ -16,6 +17,19 @@ function msg(res,msg,data){
 		msg,
 		data
 	}
+}
+
+//fs模块async函数处理
+const fsAp = function(a,b){
+	return new Promise(function(resolve,reject){
+		fsSystem.appendFile(a,b,function(err,data){
+			if(err){
+				reject(err)
+			}else {
+				resolve(data);
+			}
+		});
+	})
 }
 
 //文件处理
@@ -66,5 +80,6 @@ module.exports={
 	path:'http://www.linzantian.com/upload/',
 	upload:upload('./www/upload/'),
 	Format:Format,
-	random:random
+	random:random,
+	fsAp:fsAp
 }
