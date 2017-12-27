@@ -19,7 +19,7 @@ const app = new Koa();
 	app.keys = keys;
 	const CONFIG = {
 	  key: 'sess_id', 
-	  maxAge: 20*60*1000,
+	  maxAge: 1*24*60*60*1000,
 	  overwrite: true, 
 	  httpOnly: true, 
 	  signed: true,
@@ -29,7 +29,7 @@ const app = new Koa();
 }());
 
 //post 数据处理中间件
-app.use(bodyParser());
+app.use(bodyParser({formLimit: '20mb'}));
 
 // 跨域设置
 app.use(cors({
@@ -91,8 +91,7 @@ app.use(async(ctx,next)=>{
 })
 
 //静态文件的访问
-app.use(static('./www'));
-// {maxAge:7*60*60*1000}
+app.use(static('./www',{maxAge:7*60*60*1000}));
 
 //文件上传路由
 router.post('/admin/user/userFace', common.upload.single('userFace'), async (ctx, next) => {  
