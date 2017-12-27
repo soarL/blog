@@ -34,7 +34,7 @@ let add = async (ctx,next)=>{
 let read = async (ctx,next)=>{
 	let sql = ``;
 	if(!ctx.query.id){
-		sql = `SELECT * FROM article_table`;
+		sql = `SELECT id,newsName,newsAuthor,newsTime,isShow,newsLook FROM article_table`;
 	}else{
 		sql = `SELECT * FROM article_table WHERE id=${ctx.query.id}`;
 	}
@@ -79,7 +79,7 @@ let rp = async (ctx,next)=>{
 
 //搜索文章接口
 let readSome = async (ctx,next)=>{
-	let sql = `SELECT * FROM article_table WHERE newsName LIKE '%${ctx.request.body.val}%'`;
+	let sql = `SELECT id,newsName,newsAuthor,newsTime,isShow,newsLook FROM article_table WHERE newsName LIKE '%${ctx.request.body.val}%'`;
 	await db(sql)
 	.then((data)=>{
 		ctx.response.body = common.msg('0000','查询成功',data);

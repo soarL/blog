@@ -7,32 +7,32 @@ let list = async(ctx,next)=>{
 	var sql; 
 	switch (ctx.request.body.type) {
 		case 'all':
-			sql = `SELECT * FROM article_table ORDER BY id DESC`;
+			sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table ORDER BY id DESC`;
 			break;
 		case "some":
 			if(!ctx.request.body.limit || ctx.request.body.limit==''){
-				sql = `SELECT * FROM article_table ORDER BY id DESC`;
+				sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table ORDER BY id DESC`;
 			}else{
-				sql = `SELECT * FROM article_table ORDER BY id DESC LIMIT ${ctx.request.body.limit}`;
+				sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table ORDER BY id DESC LIMIT ${ctx.request.body.limit}`;
 			}
 			break;
 		case "javascript":
-			sql = `SELECT * FROM article_table WHERE classify LIKE "%javascript%" ORDER BY id DESC`;
+			sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table WHERE classify LIKE "%javascript%" ORDER BY id DESC`;
 			break;
 		case "html":
-			sql = `SELECT * FROM article_table WHERE classify LIKE "%html%" ORDER BY id DESC`;
+			sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table WHERE classify LIKE "%html%" ORDER BY id DESC`;
 			break;
 		case "css":
-			sql = `SELECT * FROM article_table WHERE classify LIKE "%css%" ORDER BY id DESC`;
+			sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table WHERE classify LIKE "%css%" ORDER BY id DESC`;
 			break;
 		case "nodejs":
-			sql = `SELECT * FROM article_table WHERE classify LIKE "%nodejs%" ORDER BY id DESC`;
+			sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table WHERE classify LIKE "%nodejs%" ORDER BY id DESC`;
 			break;
 		case "php":
-			sql = `SELECT * FROM article_table WHERE classify LIKE "%php%" ORDER BY id DESC`;
+			sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table WHERE classify LIKE "%php%" ORDER BY id DESC`;
 			break;
 		default:
-			sql = `SELECT * FROM article_table ORDER BY id DESC LIMIT 10`;
+			sql = `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table ORDER BY id DESC LIMIT 10`;
 			break;
 	}
 	await db(sql)
@@ -58,14 +58,16 @@ let read = async (ctx,next)=>{
 	
 	let sql = await db(ctxSql)
 	.then((data)=>{
-		if(data.length !=2){
-			if(data.DIR == "Prev"){
-				let prevId = data[0].id;
-				return `SELECT * FROM article_table WHERE id in (${id},${prevId})`;
-			}else {
-				let nextId = data[0].id;
-				return `SELECT * FROM article_table WHERE id in (${id},${nextId})`;
-			}
+		if(!data.length){
+			return `SELECT * FROM article_table WHERE id in (${id})`;
+		}else if(data.length !=2){
+				if(data.DIR == "Prev"){
+					let prevId = data[0].id;
+					return `SELECT * FROM article_table WHERE id in (${id},${prevId})`;
+				}else {
+					let nextId = data[0].id;
+					return `SELECT * FROM article_table WHERE id in (${id},${nextId})`;
+				}
 		}else{
 			let prevId = data[0].id;
 			let nextId = data[1].id;
@@ -74,7 +76,19 @@ let read = async (ctx,next)=>{
 	})
 	await db(sql)
 	.then((data)=>{
-		if(data.length !=3){
+		if(data.length==1){
+			let datas = {};
+			datas.prev = {
+					"url":"javascript:",
+					"newsName":"没有了"
+				};
+			datas.data = data[0];
+			datas.next = {
+					"url":"javascript:",
+					"newsName":"没有了"
+				};
+			ctx.response.body = common.msg('0000','查询成功',datas);
+		}else if(data.length !=3){
 			let datas = {};
 			let one = data[0].id;
 			let second = data[1].id;
@@ -106,7 +120,7 @@ let read = async (ctx,next)=>{
 
 //特别推荐数据
 let recommend = async(ctx,next)=>{
-	let sql = `SELECT * FROM article_table WHERE isShow LIKE '0' ORDER BY id DESC LIMIT 6`; 
+	let sql = `SELECT id,newsName,newSketch,url,imgSrc FROM article_table WHERE isShow LIKE '0' ORDER BY id DESC LIMIT 6`; 
 	await db(sql)
 	.then((data)=>{
 		ctx.response.body = common.msg('0000','查询成功',data);
@@ -115,7 +129,7 @@ let recommend = async(ctx,next)=>{
 
 //热门文章数据
 let host = async (ctx,next)=>{
-	let sql= `SELECT * FROM article_table ORDER BY  viewCount DESC LIMIT 3`;
+	let sql= `SELECT id,newsName,newsAuthor,newsTime,newSketch,url,imgSrc,viewCount,classify FROM article_table ORDER BY  viewCount DESC LIMIT 3`;
 	await db(sql)
 	.then((data)=>{
 		ctx.response.body = common.msg("0000","查询成功",data);
