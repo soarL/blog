@@ -62,6 +62,7 @@ layui.config({
 	})
 
 
+
 	//批量删除
 	$(".batchDel").click(function(){
 		var data = {};
@@ -118,7 +119,30 @@ layui.config({
  
 	//操作
 	$("body").on("click",".links_edit",function(){  //编辑
-		layer.alert('您点击了友情链接编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'友链编辑'});
+		//编辑友情链接
+			var id = $(this).context.dataset.id;
+			var index = layui.layer.open({
+			  type: 2,
+			  content: 'linksRp.html',
+			  success: function(layero, index){
+			    var body = layui.layer.getChildFrame('body', index);
+			    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+			   
+			    $.get('http://www.linzantian.com/admin/links/read?id='+id,function(r){
+			    	 body.find('.linksName').val(r.data[0].linksName);
+			    	 body.find('.linksUrl').val(r.data[0].linksUrl);
+			    	 body.find('.linksTime').val(r.data[0].linksTime);
+			    	 body.find('.masterEmail').val(r.data[0].masterEmail);
+			    	 body.find('.linksDesc').text(r.data[0].linksDesc);
+			    	 body.find('#dataid').val(r.data[0].id);
+			    })
+			  }
+			})
+			//改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+			$(window).resize(function(){
+				layui.layer.full(index);
+			})
+			layui.layer.full(index);
 	})
 
 
@@ -127,7 +151,6 @@ layui.config({
 		var _this = $(this);
 		layer.confirm('确定删除此信息？',{icon:3, title:'提示信息'},function(index){
 			var data = {id:[_this.context.dataset.id]};
-			console.log(data);
 			$.post('http://www.linzantian.com/admin/links/rm',data,function(r){
 				if(r.res =='0000'){
 					layer.close(index);
@@ -144,13 +167,14 @@ layui.config({
 
 	function linksList(that){
 		//渲染数据
-		function renderDate(data,curr){
+		function renderDate(data){
 			var dataHtml = '';
-			if(!that){
-				currData = linksData.concat().splice(curr*nums-nums, nums);
-			}else{
-				currData = that.concat().splice(curr*nums-nums, nums);
-			}
+			// if(!that){
+			// 	currData = linksData.concat().splice(curr*nums-nums, nums);
+			// }else{
+			// 	currData = that.concat().splice(curr*nums-nums, nums);
+			// }
+			var currData = data;
 			if(currData.length != 0){
 				for(var i=0;i<currData.length;i++){
 					dataHtml += '<tr>'
@@ -160,7 +184,7 @@ layui.config({
 			    	+'<td>'+currData[i].masterEmail+'</td>'
 			    	+'<td>'+currData[i].linksTime+'</td>'
 			    	+'<td>'
-					+  '<a class="layui-btn layui-btn-mini links_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+					+  '<a class="layui-btn layui-btn-mini links_edit" data-id="'+data[i].id+'"><i class="iconfont icon-edit"></i> 编辑</a>'
 					+  '<a class="layui-btn layui-btn-danger layui-btn-mini links_del" data-id="'+data[i].id+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 			        +'</td>'
 			    	+'</tr>';
@@ -171,14 +195,14 @@ layui.config({
 		    return dataHtml;
 		}
 
-		//分页
-		var nums = 13; //每页出现的数据量
+		//不能使用分页
+		// var nums = 13; //每页出现的数据量
 		if(that){
 			linksData = that;
 		}
 		laypage({
 			cont : "page",
-			pages : Math.ceil(linksData.length/nums),
+			// pages : Math.ceil(linksData.length/nums),
 			jump : function(obj){
 				$(".links_content").html(renderDate(linksData,obj.curr));
 				$('.links_list thead input[type="checkbox"]').prop("checked",false);

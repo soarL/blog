@@ -18,7 +18,6 @@ superagent.get(targetUrl)
         var href = url.resolve(targetUrl, $element.attr('href'));
         topicUrls.push(href);
 
-
         let ep = new eventproxy();
         //第二步：定义监听事件的回调函数。
           //after方法为重复监听
@@ -34,13 +33,16 @@ superagent.get(targetUrl)
                   return ({
                       title: $('.topic_full_title').text().trim(),
                       href: topicUrl,
-                      comment1: $('.reply_content').eq(0).text().trim()
+                      comment1: $('.markdown-text').eq(0).text().trim()
                   });
               });
               //outcome
               for(let i=0;i< topics.length;i++){
-              	fs.appendFile('ys.txt',`${topics[i].title},${topics[i].comment1}`);
+                if(topics[i].title.length!=0){
+                 fs.appendFile('ys.txt',`----------------标题\n${topics[i].title}\n----------------内容\n${topics[i].comment1}\n`);
+                }
               }
+              return
           });
           //第三步：确定放出事件消息的
           topicUrls.forEach(function (topicUrl) {
@@ -49,7 +51,6 @@ superagent.get(targetUrl)
                       ep.emit('topic_html', [topicUrl, res.text]);
                   });
           });
-
 
      });
 

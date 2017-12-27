@@ -91,7 +91,8 @@ app.use(async(ctx,next)=>{
 })
 
 //静态文件的访问
-app.use(static('./www',{maxAge:7*60*60*1000}));
+app.use(static('./www'));
+// {maxAge:7*60*60*1000}
 
 //文件上传路由
 router.post('/admin/user/userFace', common.upload.single('userFace'), async (ctx, next) => {  

@@ -31,7 +31,7 @@ let add = async (ctx,next)=>{
 		ctx.response.body = common.msg('0000','提交成功');
 	})
 	.catch((data)=>{
-		ctx.response.body = common.msg('0002','提交失败数据库错误');
+		ctx.response.body = common.msg('0002','请输入合法的内容');
 	})
 };
 

@@ -32,7 +32,12 @@ let add = async (ctx,next)=>{
 
 //查询文章的路由
 let read = async (ctx,next)=>{
-	let sql = `SELECT * FROM article_table`;
+	let sql = ``;
+	if(!ctx.query.id){
+		sql = `SELECT * FROM article_table`;
+	}else{
+		sql = `SELECT * FROM article_table WHERE id=${ctx.query.id}`;
+	}
 	await db(sql)
 	.then((data)=>{
 		ctx.response.body = common.msg('0000','查询成功',data);
@@ -94,11 +99,32 @@ let upImg = async(ctx,next)=>{
 	})
 }
 
+//修改友情链接路由
+let rpArticle = async (ctx,next)=>{
+	var addSqlArr = [];
+
+	for(let i in ctx.request.body){
+		if(i=='id'){
+
+		}else{
+			addSqlArr.push(ctx.request.body[i]);
+		}
+	};
+
+	let sql = `UPDATE article_table SET newsName=?,newsLook=?,classify=?,newsTime=?,newsAuthor=?,newSketch=?,newsContent=? WHERE id=${ctx.request.body.id}`;
+	await db(sql,addSqlArr)
+	.then((data)=>{
+		ctx.response.body = common.msg('0000','添加成功');
+	})
+}
+
+
 module.exports = {
     'POST /article/add': add,
     'POST /article/read': read,
     'POST /article/rm': rm,
     'POST /article/rp': rp,
+    'POST /article/rpArticle': rpArticle,
     'POST /article/read/some': readSome,
     'POST /article/upImg': upImg,
 };

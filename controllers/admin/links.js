@@ -21,9 +21,33 @@ let add = async (ctx,next)=>{
 	})
 }
 
+//修改友情链接路由
+let rp = async (ctx,next)=>{
+	var addSqlArr = [];
+
+	for(let i in ctx.request.body){
+		if(i=='id'){
+
+		}else{
+			addSqlArr.push(ctx.request.body[i]);
+		}
+	};
+
+	let sql = `UPDATE links_table SET linksName=?,linksUrl=?,linksTime=?,masterEmail=?,linksDesc=? WHERE id=${ctx.request.body.id}`;
+	await db(sql,addSqlArr)
+	.then((data)=>{
+		ctx.response.body = common.msg('0000','添加成功');
+	})
+}
+
 //查询友情链接内容路由
 let read = async (ctx,next)=>{
-	let sql = `SELECT * FROM links_table`;
+	let sql=``;
+	if(!ctx.query.id){
+		sql = `SELECT * FROM links_table`;
+	}else{
+		sql = `SELECT * FROM links_table WHERE id=${ctx.query.id}`;
+	}
 	await db(sql)
 	.then((data)=>{
 		ctx.response.body = common.msg('0000','查询成功',data);
@@ -52,6 +76,7 @@ let readSome = async (ctx,next)=>{
 
 module.exports = {
     'POST /links/add': add,
+    'POST /links/rp': rp,
     'GET /links/read': read,
     'POST /links/rm': rm,
     'POST /links/read/some': readSome

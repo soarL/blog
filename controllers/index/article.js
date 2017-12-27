@@ -158,14 +158,14 @@ let message = async(ctx,next)=>{
 	data.userface = faceArr[common.random(3)];
 	data.askTime = common.Format("yyyy-MM-dd");
 	messageArr.push(data);
-	let addSql = `UPDATE article_table SET message='${JSON.stringify(messageArr)}' WHERE id=${ctx.request.body.id}`;
-	await db(addSql)
+	let addSql = `UPDATE article_table SET message=? WHERE id=${ctx.request.body.id}`;
+	await db(addSql,JSON.stringify(messageArr))
 	.then((data)=>{
 		ctx.response.body = common.msg('0000','发表成功')
 	})
 	.catch((data)=>{
 		console.log(data);
-		ctx.response.body = common.msg('0002','发表失败')
+		ctx.response.body = common.msg('0002','请输入合法的内容')
 	})
 }
 

@@ -155,7 +155,23 @@ layui.config({
  
 	//操作
 	$("body").on("click",".news_edit",function(){  //编辑
-		layer.alert('您点击了文章编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'文章编辑'});
+		//编辑文章链接
+			var id = $(this).context.dataset.id;
+			var index = layui.layer.open({
+			  type: 2,
+			  content: 'newsRp.html',
+			  success: function(layero, index){
+			    var body = layui.layer.getChildFrame('body', index);
+			    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+			    body.find('#dataid').val(id);
+		
+			  }
+			})
+			//改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+			$(window).resize(function(){
+				layui.layer.full(index);
+			})
+			layui.layer.full(index);
 	})
 
 	//删除文章
@@ -179,13 +195,14 @@ layui.config({
 
 	function newsList(that){
 		//渲染数据
-		function renderDate(data,curr){
+		function renderDate(data){
 			var dataHtml = '';
-			if(!that){
-				currData = newsData.concat().splice(curr*nums-nums, nums);
-			}else{
-				currData = that.concat().splice(curr*nums-nums, nums);
-			}
+			// if(!that){
+			// 	currData = newsData.concat().splice(curr*nums-nums, nums);
+			// }else{
+			// 	currData = that.concat().splice(curr*nums-nums, nums);
+			// }
+			var currData = data;
 			if(currData.length != 0){
 				for(var i=0;i<currData.length;i++){
 					dataHtml += '<tr>'
@@ -204,7 +221,7 @@ layui.config({
 			    	}
 			    	dataHtml +='<td>'+currData[i].newsTime.split("T")[0]+'</td>'
 			    	+'<td>'
-					+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+					+  '<a class="layui-btn layui-btn-mini news_edit" data-id="'+data[i].id+'"><i class="iconfont icon-edit"></i> 编辑</a>'
 					+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+data[i].id+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 			        +'</td>'
 			    	+'</tr>';
@@ -215,16 +232,16 @@ layui.config({
 		    return dataHtml;
 		}
 
-		//分页
-		var nums = 13; //每页出现的数据量
+		//不能使用分页
+		// var nums = 5; //每页出现的数据量
 		if(that){
 			newsData = that;
 		}
 		laypage({
 			cont : "page",
-			pages : Math.ceil(newsData.length/nums),
+			// pages : Math.ceil(newsData.length/nums),
 			jump : function(obj){
-				$(".news_content").html(renderDate(newsData,obj.curr));
+				$(".news_content").html(renderDate(newsData));
 				$('.news_list thead input[type="checkbox"]').prop("checked",false);
 		    	form.render();
 			}
