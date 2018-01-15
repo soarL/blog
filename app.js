@@ -44,11 +44,12 @@ app.use(cors({
 }));
 
 //获取客户端ip生成日志
-app.use(async(ctx,next)=>{
+/*app.use(async(ctx,next)=>{
 	let log = `当前访问的ip${ctx.request.ip},访问地址：${ctx.request.url},访问时间：${common.Format("yyyy-MM-dd hh:mm:ss")}`;
 	common.fsAp('./log.txt',log+'\n');
 	await next();
 })
+*/
 
 //处理登入
 //登入路由
@@ -112,10 +113,8 @@ router.post('/admin/article/upImg', common.upload.single('articleFace'), async (
 //添加控制器:
 router.use('/admin',controller('controllers/admin'))
 
-
 //添加控制器:
 router.use('/index',controller('controllers/index'))
-
 
 //设置404页面
 app.use(async (ctx,next)=>{
