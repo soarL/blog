@@ -143,9 +143,9 @@ layui.config({
             var replyHtml = '',msgStr;
             replyHtml += '<tr>';
             replyHtml += '  <td class="msg_info">';
-            replyHtml += '    <img src="../../images/userface5.jpg" width="50" height="50">';
+            replyHtml += '    <img src="../../images/face.jpg" width="50" height="50">';
             replyHtml += '    <div class="user_info">';
-            replyHtml += '        <h2>请叫我田哥</h2>';
+            replyHtml += '        <h2>请叫我田哥 回复：</h2>';
             replyHtml += '        <p>'+layedit.getContent(editIndex)+'</p>';
             replyHtml += '    </div>';
             replyHtml += '  </td>';
@@ -154,7 +154,7 @@ layui.config({
             replyHtml += '</tr>';
             var data = {
                 "id":$('.rId')[0].dataset.id,
-                "userface" : "http://www.linzantian.com/upload/face/face3.jpg",
+                "userface" : "http://www.linzantian.com/upload/face/face5.jpg",
                 "userName" : "请叫我田哥",
                 "userAsk" : layedit.getContent(editIndex),
                 "askTime" : formatTime(new Date())
