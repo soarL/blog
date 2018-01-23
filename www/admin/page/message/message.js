@@ -182,4 +182,3 @@ function formatTime(_time){
     var minute = _time.getMinutes()<10 ? "0"+_time.getMinutes() : _time.getMinutes();
     return year+"-"+month+"-"+day+" "+hour+":"+minute;
 }
-
