@@ -41,10 +41,9 @@ app.use(bodyParser({formLimit: '20mb'}));
     credentials: true,
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
-ONFLICT (content): Merge conflict in app.js
-Automatic merge failed; fix conflicts and then commit the result.
-
+}));
 */
+
 //获取客户端ip生成日志
 /*app.use(async(ctx,next)=>{
 	let log = `当前访问的ip${ctx.request.ip},访问地址：${ctx.request.url},访问时间：${common.Format("yyyy-MM-dd hh:mm:ss")}`;
