@@ -32,7 +32,7 @@ const app = new Koa();
 app.use(bodyParser({formLimit: '20mb'}));
 
 // 跨域设置
-app.use(cors({
+/*app.use(cors({
     origin: function (ctx) {
             return "*"; // 允许来自所有域名请求
     },
@@ -42,7 +42,7 @@ app.use(cors({
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
-
+*/
 //获取客户端ip生成日志
 /*app.use(async(ctx,next)=>{
 	let log = `当前访问的ip${ctx.request.ip},访问地址：${ctx.request.url},访问时间：${common.Format("yyyy-MM-dd hh:mm:ss")}`;
