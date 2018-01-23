@@ -41,7 +41,9 @@ app.use(bodyParser({formLimit: '20mb'}));
     credentials: true,
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
-}));
+ONFLICT (content): Merge conflict in app.js
+Automatic merge failed; fix conflicts and then commit the result.
+
 */
 //获取客户端ip生成日志
 /*app.use(async(ctx,next)=>{
