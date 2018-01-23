@@ -2,5 +2,5 @@ node_modules/
 libs/test.js
 libs/mysql.js
 pcssys/ys.txt
-page_build/
+page_build/node_modules
 log.txt
