@@ -1,0 +1,96 @@
+/*
+ *图标定义样式
+ *推荐使用 i标签去引用
+ *<i class="icon icon-search"></i>
+ *添加往 icon.png 中去添加
+*/
+.icon{
+	background-image:url(../img/icon.png); 
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none;
+}
+.icon-triangle-right{
+	width: 34px;
+	height: 62px;
+	background-position: -446px -12px;
+}
+.icon-triangle-left{
+	width: 34px;
+	height: 62px;
+	background-position: -408px -12px;
+}
+.icon-hot{
+	width: 34px;
+	height: 15px;
+	background-position: -76px -76px;
+}
+.icon-new{
+	width: 34px;
+	height: 15px;
+	background-position: -37px -76px;
+}
+.icon-link{
+	width: 17px;
+	height: 17px;
+	background-position: -45px -4px;	
+}
+.icon-triangle-b{
+	width: 13px;
+	height: 11px;
+	background-position: -19px -71px;
+	cursor: pointer;	
+}
+.icon-triangle-f{
+	width: 13px;
+	height: 11px;
+	background-position: -1px -71px;	
+}
+.icon-shopping-car{
+	width: 25px;
+	height: 27px;
+	background-position: -7px -9px;
+	cursor: pointer;	
+}
+.icon-search{
+	width: 13px;
+	height: 13px;
+	background-position: -1px -50px;	
+	cursor:pointer;
+}
+.icon-affirm{
+	width: 13px;
+	height: 10px;
+	background-position: -1px -89px;	
+}
+.icon-page-right{
+	width: 30px;
+	height: 31px;
+	background-position: -42px -104px;	
+}
+.icon-page-left{
+	width: 30px;
+	height: 31px;
+	background-position: -4px -104px;	
+}
+.icon-footer-truck{
+	width: 77px;
+	height: 55px;
+	background-position:-141px -79px;	
+}
+.icon-footer-help{
+	width: 77px;
+	height: 55px;
+	background-position:-232px -79px;	
+}
+.icon-footer-after{
+	width: 77px;
+	height: 55px;
+	background-position: -313px -80px;	
+}
+.icon-footer-quality{
+	width: 77px;
+	height: 55px;
+	background-position:-405px -79px;	
+
+}
