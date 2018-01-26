@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="placeholder"></div>
+<!--     <div class="placeholder"></div>
     <Headers :HeaderData="HeaderData"></Headers>
     <div class="container">
       <Swiper :SwiperData="SwiperData" v-if="userAgent" />
@@ -19,7 +19,8 @@
        <Links :LinksData="LinksData"  v-if="!userAgent" />
     </div>
     <Footers :FootersData="FootersData" />
-     <Top />
+     <Top /> -->
+    <Sec :tit="标题" :hint="请输入密码" :input_type="text" :str="123" :form_element_id="123" :max_length=213 :name="name"/>
   </div>
 </template>
 <script>
@@ -33,6 +34,7 @@ import HostArticle from 'components/hostArticle.vue';
 import Total from 'components/total.vue';
 import Links from 'components/links.vue';
 import Footers from 'components/footer.vue';
+import Sec from 'components/Sec.vue';
 
 //数据来源
 import HeaderData from 'common/dataControl/HeaderJson';
@@ -58,7 +60,8 @@ export default {
       TotalData,
       LinksData,
       FootersData,
-      userAgent:false
+      userAgent:false,
+      text:"text"
     }
   },
   components:{
@@ -71,6 +74,7 @@ export default {
     Total,
     Links,
     Footers,
+    Sec,
     Top:resolve=>require(['components/top.vue'],resolve)
   },
   mounted:function(){
