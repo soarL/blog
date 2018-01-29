@@ -48,6 +48,8 @@ for itme in range(1,pageNum+1):
 
 		content += str(cishu)+" ："+eachText.encode("utf8")+"\n\n"
 
+		print "已收集%d篇文章，请不要退出程序"%(cishu)
+		
 		cishu+=1
 
 print "文章收集完成开始写入文件！"
