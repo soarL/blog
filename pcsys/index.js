@@ -6,10 +6,51 @@ const cheerio = require('cheerio');
 const common = require('../libs/common');
 const db = require('../libs/mysql');
 const eventproxy = require('eventproxy');
+const iconv = require('iconv-lite');
+
+
+
+let i =0;
+
+let beginDate = new Date().getTime()
+
+
+// while (true){
+//   let nowDate = new Date().getTime();
+//   if(nowDate > beginDate + 10*1000){
+//     break;
+//   }
+//   i++;
+  
+//   superagent.get(targetUrl).end((err,res)=>{
+//     console.log(res.text);
+//     let data = JSON.parse(res.text);
+//     fs.writeFile(`./se/1.html`,data.data,(res)=>{
+//     })
+//   })
+//  }
+
+function begin(page){
+
+  let targetUrl = `https://weibo.com/a/aj/transform/loadingmoreunlogin?ajwvr=6&category=0&page=${page}&lefnav=0&__rnd=${new Date().getTime()}`;
+
+  superagent.get(targetUrl).end((err,res)=>{
+    let data = JSON.parse(res.text);
+    fs.writeFile(`./se/${page}.html`,data.data,(res)=>{})
+  })
+
+}
+
+for (let i=0;i < beginDate;i++){
+  if(new Date().getTime() > beginDate + 10*1000){
+    break;
+  }
+  begin(i)
+}
 
 
 /*
-let targetUrl = "https://www.taobao.com/markets/nanzhuang/2017new?spm=a21bo.2017.201867-main.2.58199862T9SZl8";
+let targetUrl = "https://www.taobao.com/markets/nvzhuang/taobaonvzhuang?spm=a21bo.2017.201867-main.1.953f52dhP0LZu";
 superagent.get(targetUrl).end(function (err, res){
   let $ = cheerio.load(res.text);
   $(".layout .grid-1 .main-wrap .cm-items-oneline6-pc").each(function(index, el) {
@@ -29,18 +70,27 @@ superagent.get(targetUrl).end(function (err, res){
 		let result5 = result4.result[tce_sid].result;
 
 		result5.forEach( function(el, index) {
-		   var sql = `INSERT INTO taobao_pic_table(id,item_pic,item_title) VALUES(0,"http:${el.item_pic}","${el.item_title}")`;
+		   var sql = `INSERT INTO taobao_pic_table(id,item_pic,item_title,item_url) VALUES(0,"http:${el.item_pic}","${el.item_title}","http:${el.item_url}")`;
 		   db(sql);
 
+  //      // let items_type = el.item_pic.split(".");
+  //      // let type = "."+items_type[items_type.length-1];
 
-		});
+  //      superagent.get(`http:${el.item_pic}`).end((err,res)=>{
+  //         if(!err){
+  //            fs.writeFile(`./taobao/${el.item_title}.jpg`,res.body,(err)=>{})
+  //         }
+  //      })
 
-	})
+		 });
+
+	 })
 
   });
 
 });
 */
+
 // let setArr = new Set();
 // db("SELECT item_title FROM taobao_pic_table").then((res)=>{
 // 	console.log(res.length);
@@ -63,7 +113,7 @@ superagent.get(targetUrl).end(function (err, res){
 // });
 
 
-// db("SELECT * FROM taobao_pic_table  WHERE id < 311 AND id > 200")
+// db("SELECT * FROM taobao_pic_table  WHERE id < 311 AND id > 0")
 // .then((data)=>{
 // 	var a = 0;
 // 	data.forEach((el,index)=>{
