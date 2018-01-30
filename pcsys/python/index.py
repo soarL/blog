@@ -16,10 +16,10 @@ sys.setdefaultencoding('utf-8')
 if(len(sys.argv)>=2):
 	user_id = (int)(sys.argv[1])
 else:
-	user_id = (int)(raw_input("请输入user_id："))
+	user_id = (int)(raw_input("please enter the user_id:"))
 
 cookie = {
-	"Cookie":"9c3a0abd7240b2fea98a7e3809e4ae36; SUB=_2A253a23DDeRhGeRJ7FQQ8ybLyDuIHXVUlHOLrDV6PUJbkdBeLW_jkW1NUlG5zUh1UE9CnzPHvgPnAij8nn0salc2; SUHB=0BLZis2aSWSCDU; SCF=AlGBxeBWHVD2vN91-cOQgeCu95LDsmoBA8_UJukC4sHhLPyh64CbeN6k3rTeecTSDtX6uSDTP5ZGayjpJOebDjQ.; SSOLoginState=1517231507"
+	"Cookie":"2b6d89d6d18fc4f7b8c429fe0dbfaf2f; SUB=_2A253a7oDDeRhGeRJ7FQQ8ybLyDuIHXVUl8ZLrDV6PUJbkdBeLWPQkW1NUlG5zWwgnGWxZ5Hdxm9bcJr7o-cEzjK4; SUHB=08JKmQ6B8z59ti; SCF=Ap2a2WzG38P9DxUSNBfC7wlw95ih-ZjezbPHjfKNIRAuDG6TF_ySlTG9ZjgIFvLwbsWhp62gkYDm4AXcaf5aCkI.; SSOLoginState=1517275731"
 }
 
 url = 'https://weibo.cn/%d/profile?page=1'%(user_id)
@@ -31,12 +31,13 @@ selector = etree.HTML(lxml)
 pageNum = (int)(selector.xpath("//input[@name='mp']")[0].attrib["value"])
 
 
-print "蜘蛛准备完成开始收集id___%d___的文章"%(user_id)
+print "Ready success to id ___%d___is article"%(user_id)
 
 content=''
 cishu = 1;
 for itme in range(1,pageNum+1):
 	url = 'https://weibo.cn/%d/profile?page=%d'%(user_id,itme)
+
 	lxml = requests.get(url,cookies=cookie).content
 
 	selector = etree.HTML(lxml)
@@ -48,31 +49,13 @@ for itme in range(1,pageNum+1):
 
 		content += str(cishu)+" ："+eachText.encode("utf8")+"\n\n"
 
-		print "已收集%d篇文章，请不要退出程序"%(cishu)
+		print "this is %d article,don't not exit the program"%(cishu)
 		
 		cishu+=1
 
-print "文章收集完成开始写入文件！"
+print "article collection success! start writing file"
 
 with open("1.txt","wb") as f:
 	f.write(content)
 
-print "文件写入完成！程序关闭！"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print "writing file success! thank you for using!"
