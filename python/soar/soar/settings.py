@@ -70,7 +70,7 @@ IMAGES_STORE = "/koa/python/soar/soar/qidian/img/"
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   # 'soar.jsonpipelines.pipelines.QidianPipeline': 20,
+   'soar.jsonpipelines.pipelines.QidianPipeline': 1,
    'soar.imgpipelines.pipelines.QidianPipeline': 20
 }
 
