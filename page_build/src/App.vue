@@ -58,7 +58,7 @@ export default {
       TotalData,
       LinksData,
       FootersData,
-      userAgent:false
+      userAgent:false,
     }
   },
   components:{
