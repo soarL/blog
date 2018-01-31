@@ -1,0 +1,52 @@
+let data={
+	"title":"热门标签",
+	"data":[
+		{
+			"url":"javascript:",
+			"value":'ajax'
+		},
+		{
+			"url":"javascript:",
+			"value":'Dreamweaver'
+		},
+		{
+			"url":"javascript:",
+			"value":'js'
+		},
+		{
+			"url":"javascript:",
+			"value":'css'
+		},
+		{
+			"url":"javascript:",
+			"value":'搞笑'
+		},
+		{
+			"url":"javascript:",
+			"value":'娱乐'
+		},
+		{
+			"url":"javascript:",
+			"value":'MySQL'
+		},
+		{
+			"url":"javascript:",
+			"value":'PHP'
+		},
+		{
+			"url":"javascript:",
+			"value":'dedeCMS'
+		},
+		{
+			"url":"javascript:",
+			"value":'dedeCMS'
+		},
+		{
+			"url":"javascript:",
+			"value":'博客'
+		}
+	]
+}
+
+
+module.exports=data;

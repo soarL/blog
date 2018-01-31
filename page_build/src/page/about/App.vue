@@ -1,22 +1,19 @@
 <template>
   <div id="app">
     <div class="placeholder"></div>
-    <Headers :HeaderData="HeaderData"></Headers>
+    <Headers :HeaderData="HeaderData" />
     <div class="container">
-      <Swiper :SwiperData="SwiperData" v-if="userAgent" />
       <div class="margin-top-15">
         <div class="float-left index-list">
-          <Recommend :RecommendData="RecommendData" v-if="userAgent" />
-          <List :ListData="ListData" />
+          <Abouts />
         </div>
         <div class="float-right tuijian">
-          <Host :HostData="HostData"  v-if="userAgent" />
-          <HostArticle :HostArticleData="HostArticleData"  v-if="userAgent" />
-          <Total :TotalData="TotalData"  v-if="userAgent" />
-          <Links :LinksData="LinksData"  v-if="userAgent" />
+          <Host :HostData="HostData" v-if="userAgent"/>
+          <HostArticle :HostArticleData="HostArticleData" v-if="userAgent"/>
+          <Total :TotalData="TotalData" v-if="userAgent"/>
+          <Links :LinksData="LinksData" v-if="userAgent"/>
         </div>
       </div>
-       <Links :LinksData="LinksData"  v-if="!userAgent" />
     </div>
     <Footers :FootersData="FootersData" />
      <Top />
@@ -25,9 +22,7 @@
 <script>
 //组件引入
 import Headers from 'components/header.vue';
-import Swiper from 'components/swiper.vue';
-import Recommend from 'components/recommend.vue';
-import List from 'components/list.vue';
+import Abouts from 'components/about.vue';
 import Host from 'components/host.vue';
 import HostArticle from 'components/hostArticle.vue';
 import Total from 'components/total.vue';
@@ -36,9 +31,6 @@ import Footers from 'components/footer.vue';
 
 //数据来源
 import HeaderData from 'common/dataControl/HeaderJson';
-import SwiperData from 'common/dataControl/SwiperJson';
-import RecommendData from 'common/dataControl/RecommendJson';
-import ListData from 'common/dataControl/ListJson';
 import HostData from 'common/dataControl/HostJson';
 import HostArticleData from 'common/dataControl/HostArticleJson';
 import TotalData from 'common/dataControl/TotalJson';
@@ -50,9 +42,6 @@ export default {
   data(){
     return{
       HeaderData,
-      SwiperData,
-      RecommendData,
-      ListData,
       HostData,
       HostArticleData,
       TotalData,
@@ -63,9 +52,7 @@ export default {
   },
   components:{
     Headers,
-    Swiper,
-    Recommend,
-    List,
+    Abouts,
     Host,
     HostArticle,
     Total,
@@ -85,7 +72,7 @@ export default {
 }
 </script>
 <style scoped>
-@import "common/css/common.css";
+@import "../../common/css/common.css";
 .index-list{
   width:74.5%;
 }

@@ -20,7 +20,6 @@
 		data(){
 			return{
 				 
-				 
 			}
 		},
 		mounted:function(){
