@@ -17,10 +17,9 @@ class QiDian(CrawlSpider):
 	start_urls = ["https://www.qidian.com/all?chanId=22&subCateId=64&orderId=&style=1&pageSize=20&siteid=1&pubflag=0&hiddenField=0&page="]
 
 	# 爬取规则
-	
-	# rules = (
-	# 	Rule(LinkExtractor(allow =(r"hiddenField=0&page=\d")),callback ="parse_item",follow= True),
-	# 	)
+	rules = (
+		Rule(LinkExtractor(allow =(r"hiddenField=0&page=\d")),callback ="parse_item",follow= True),
+		)
 
 	# def get_page(self,response):
 
@@ -30,7 +29,7 @@ class QiDian(CrawlSpider):
 	# 		url = self.bash_url + str(i)
 	# 		yield scrapy.Request(url,self.parse)
 	
-	def parse(self,response):
+	def parse_item(self,response):
 		data_list = response.xpath("//ul[@class='all-img-list cf']/li")
 		for data in data_list:
 			item = QidianItem()
