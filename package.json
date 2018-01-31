@@ -11,6 +11,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "eventproxy": "^1.0.0",
+    "iconv-lite": "^0.4.19",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-multer": "^1.0.2",

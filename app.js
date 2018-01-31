@@ -41,8 +41,8 @@ app.use(bodyParser({formLimit: '20mb'}));
     credentials: true,
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
-}));
-*/
+}));*/
+
 
 //获取客户端ip生成日志
 /*app.use(async(ctx,next)=>{
