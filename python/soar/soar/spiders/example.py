@@ -2,7 +2,7 @@
 import scrapy
 from scrapy.http import Request
 from scrapy.contrib.loader import ItemLoader
-from weibo.items import WeiboItem
+from soar.items import WeiboItem
 
 class ExampleSpider(scrapy.Spider):
     name = 'example'

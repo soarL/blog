@@ -1,5 +1,5 @@
 import mysql.connector
-from weibo import settings
+from soar import settings
 
 MYSQL_HOST = settings.MYSQL_HOST
 MYSQL_USER = settings.MYSQL_USER

@@ -14,9 +14,9 @@ class WeiboItem(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
     desc = scrapy.Field()
-    pass
 
 class QidianItem(scrapy.Item):
+	imgSrc = scrapy.Field()
 	author = scrapy.Field()
 	status = scrapy.Field()
 	classfix = scrapy.Field()

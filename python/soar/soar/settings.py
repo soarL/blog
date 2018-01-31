@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for weibo project
+# Scrapy settings for soar project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,16 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'weibo'
+BOT_NAME = 'soar'
 
-SPIDER_MODULES = ['weibo.spiders']
-NEWSPIDER_MODULE = 'weibo.spiders'
+SPIDER_MODULES = ['soar.spiders']
+NEWSPIDER_MODULE = 'soar.spiders'
 
+# LOG_FILE = "/koa/python/weibo/log.log"
+# LOG_LEVEL = "INFO"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'weibo (+http://www.yourdomain.com)'
+#USER_AGENT = 'soar (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -47,13 +49,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'weibo.middlewares.WeiboSpiderMiddleware': 543,
+#    'soar.middlewares.SoarSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'weibo.middlewares.WeiboDownloaderMiddleware': 543,
+#    'soar.middlewares.SoarDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +67,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'weibo.mysqlpipelines.pipelines.weiboPipeline': 300
+   'soar.jsonpipelines.pipelines.QidianPipeline': 300
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
