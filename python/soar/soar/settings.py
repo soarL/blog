@@ -23,6 +23,9 @@ NEWSPIDER_MODULE = 'soar.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
+IMAGES_STORE = "/koa/python/soar/soar/qidian/img/"
+
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -67,7 +70,8 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'soar.jsonpipelines.pipelines.QidianPipeline': 300
+   # 'soar.jsonpipelines.pipelines.QidianPipeline': 20,
+   'soar.imgpipelines.pipelines.QidianPipeline': 20
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

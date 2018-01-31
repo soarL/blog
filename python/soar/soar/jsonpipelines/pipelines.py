@@ -12,7 +12,7 @@ class QidianPipeline(object):
 	@classmethod
 	def process_item(self,item,spider):
 		data = json.dumps(dict(item))
-		self.f.write(data+ ",\n")
+		yield self.f.write(data+ ",\n")
 		print 'write success'
 		# for i in range(0,len(author)):
 		# 	Sql.insert_qidian_book(author[i],status[i],classfix[i],allclassfix[i],href[i],title[i],update[i],intro[i])
