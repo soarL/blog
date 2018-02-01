@@ -1,25 +1,14 @@
-# from .sql import Sql
-# from soar.items import QidianItem
-# import json
-# import os
+from .sql import Sql
 
-# class weiboPipeline(object):
+import json
 
-# 	f = open("1.json","w")
+class QidianPipeline(object):
 
-# 	def open_spider(self,spider):
-# 		self.f.write("[\n")
+	@classmethod
+	def process_item(self,item,spider):
+		data = dict(item)
+		Sql.insert_qidian_book(**data)
 
-# 	@classmethod
-# 	def process_item(self,item,spider):
-# 		data = json.dumps(dict(item))
-# 		self.f.write(data+ ",\n")
-# 		print 'write success'
-# 		for i in range(0,len(author)):
-# 			Sql.insert_qidian_book(author[i],status[i],classfix[i],allclassfix[i],href[i],title[i],update[i],intro[i])
+		print 'write success'
 	
-# 	def close_spider(self,spider):
-# 		self.f.seek(-3, os.SEEK_END)
-# 		self.f.truncate()
-# 		self.f.write("\n]")
-# 		self.f.close()
+	# def close_spider(self,spider):

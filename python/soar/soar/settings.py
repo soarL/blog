@@ -70,8 +70,9 @@ IMAGES_STORE = "/koa/python/soar/soar/qidian/img/"
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'soar.jsonpipelines.pipelines.QidianPipeline': 1,
-   'soar.imgpipelines.pipelines.QidianPipeline': 20
+   # 'soar.jsonpipelines.pipelines.QidianPipeline': 1,
+   'soar.mysqlpipelines.pipelines.QidianPipeline': 1,
+   # 'soar.imgpipelines.pipelines.QidianPipeline': 20
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -100,4 +101,4 @@ MYSQL_HOST = "localhost"
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "root"
 MYSQL_PORT = "3306"
-MYSQL_DB = "study"
+MYSQL_DB = "qidian"

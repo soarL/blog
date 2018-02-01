@@ -14,7 +14,7 @@ class QiDian(CrawlSpider):
 
 	allowed_domains = ["qidian.com"]
 
-	start_urls = ["https://www.qidian.com/all?chanId=22&subCateId=64&orderId=&style=1&pageSize=20&siteid=1&pubflag=0&hiddenField=0&page="]
+	start_urls = ["https://www.qidian.com/all?orderId=&style=1&pageSize=20&siteid=1&pubflag=0&hiddenField=0&page="]
 
 	# 爬取规则
 	rules = (
