@@ -30,3 +30,17 @@ class Sql:
 
 		cur.execute(sql,value)
 		cnx.commit()
+
+	@classmethod
+	def insert_zhihu_book(self,agree,author,authorInfo,RichText):
+		if not int(agree) < 100:
+			sql = "INSERT INTO zhihu_table(id,agree,author,authorInfo,RichText) VALUES(%(id)s,%(agree)s,%(author)s,%(authorInfo)s,%(RichText)s)"
+			value = {
+					"id":"0",
+					"agree":agree,
+					"author":author,
+					"authorInfo":authorInfo,
+					"RichText":RichText
+				}
+			cur.execute(sql,value)
+			cnx.commit()

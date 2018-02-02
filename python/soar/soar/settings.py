@@ -27,12 +27,12 @@ IMAGES_STORE = "/koa/python/soar/soar/qidian/img/"
 
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+# CONCURRENT_REQUESTS = 5
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -44,10 +44,10 @@ IMAGES_STORE = "/koa/python/soar/soar/qidian/img/"
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-#}
+DEFAULT_REQUEST_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
+    "authorization":"Bearer 2|1:0|10:1517567694|4:z_c0|80:MS4xM0N1OEJBQUFBQUFtQUFBQVlBSlZUYzZNWVZ2U1J5RVFhc21sRDAxSndQNGFXS01EVUFUb0N3PT0=|0448b1f6068f1c6f03b57c25ed45bf5ccbdbe3e60cc88fe3d7be030c490066d8"
+}
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
@@ -70,9 +70,11 @@ IMAGES_STORE = "/koa/python/soar/soar/qidian/img/"
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+   # 'soar.mysqlpipelines.pipelines.QidianPipeline': 1,
    # 'soar.jsonpipelines.pipelines.QidianPipeline': 1,
-   'soar.mysqlpipelines.pipelines.QidianPipeline': 1,
    # 'soar.imgpipelines.pipelines.QidianPipeline': 20
+   # 'soar.jsonpipelines.pipelines.ZhiHuPipeline': 1,
+   'soar.mysqlpipelines.pipelines.ZhiHuPipeline': 1
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,15 +92,15 @@ ITEM_PIPELINES = {
 
 # Enable and configure HTTP caching (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-HTTPCACHE_ENABLED = True
-HTTPCACHE_EXPIRATION_SECS = 0
-HTTPCACHE_DIR = 'httpcache'
-HTTPCACHE_IGNORE_HTTP_CODES = []
-HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+# HTTPCACHE_ENABLED = True
+# HTTPCACHE_EXPIRATION_SECS = 0
+# HTTPCACHE_DIR = 'httpcache'
+# HTTPCACHE_IGNORE_HTTP_CODES = []
+# HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 
 MYSQL_HOST = "localhost"
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "root"
 MYSQL_PORT = "3306"
-MYSQL_DB = "qidian"
+MYSQL_DB = "study"

@@ -25,3 +25,9 @@ class QidianItem(scrapy.Item):
 	title = scrapy.Field()
 	intro = scrapy.Field()
 	update = scrapy.Field()
+
+class ZhiHuItem(scrapy.Item):
+	agree = scrapy.Field()
+	author = scrapy.Field()
+	authorInfo = scrapy.Field()
+	RichText = scrapy.Field()
