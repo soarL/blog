@@ -44,3 +44,30 @@ class Sql:
 				}
 			cur.execute(sql,value)
 			cnx.commit()
+
+	@classmethod
+	def insert_neihan_duanzhi(self,avatar_url,name,content,status_desc,digg_count,comment_count,favorite_count,bury_count,user_id):
+		if not int(digg_count) < 999:
+			sql = "SELECT content FROM neihan_table WHERE content ='" + content+ "'"
+			try:
+				cur.execute(sql)
+				results = cur.fetchall()
+				if len(results) == 0:
+					sql = "INSERT INTO neihan_table(id,avatar_url,name,content,status_desc,digg_count,comment_count,favorite_count,bury_count,user_id) VALUES(%(id)s,%(avatar_url)s,%(name)s,%(content)s,%(status_desc)s,%(digg_count)s,%(comment_count)s,%(favorite_count)s,%(bury_count)s,%(user_id)s)"
+					value = {
+							"id":"0",
+							"avatar_url":avatar_url,
+							"name":name,
+							"content":content,
+							"status_desc":status_desc,
+							"digg_count":digg_count,
+							"comment_count":comment_count,
+							"favorite_count":favorite_count,
+							"bury_count":bury_count,
+							"user_id":user_id
+						}
+					cur.execute(sql,value)
+					cnx.commit()
+			except:
+				cnx.rollback()
+			

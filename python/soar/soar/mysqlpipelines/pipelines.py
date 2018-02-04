@@ -16,3 +16,10 @@ class ZhiHuPipeline(object):
 	def process_item(self,item,spider):
 		data = dict(item)
 		Sql.insert_zhihu_book(**data)
+
+class NeiHanPipeline(object):
+
+	@classmethod
+	def process_item(self,item,spider):
+		data = dict(item)
+		Sql.insert_neihan_duanzhi(**data)

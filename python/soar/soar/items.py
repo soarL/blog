@@ -31,3 +31,14 @@ class ZhiHuItem(scrapy.Item):
 	author = scrapy.Field()
 	authorInfo = scrapy.Field()
 	RichText = scrapy.Field()
+
+class NeiHanItem(scrapy.Item):
+	avatar_url = scrapy.Field()
+	name = scrapy.Field()
+	content = scrapy.Field()
+	status_desc = scrapy.Field()
+	digg_count = scrapy.Field()
+	comment_count = scrapy.Field()
+	favorite_count = scrapy.Field()
+	bury_count = scrapy.Field()
+	user_id = scrapy.Field()
