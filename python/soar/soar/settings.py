@@ -44,10 +44,9 @@ ROBOTSTXT_OBEY = False
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
-#     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
-#     "authorization":"Bearer 2|1:0|10:1517567694|4:z_c0|80:MS4xM0N1OEJBQUFBQUFtQUFBQVlBSlZUYzZNWVZ2U1J5RVFhc21sRDAxSndQNGFXS01EVUFUb0N3PT0=|0448b1f6068f1c6f03b57c25ed45bf5ccbdbe3e60cc88fe3d7be030c490066d8"
-# }
+DEFAULT_REQUEST_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60 MicroMessenger/6.5.18 NetType/WIFI Language/en'
+}
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
@@ -100,8 +99,8 @@ ITEM_PIPELINES = {
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 
-MYSQL_HOST = "47.52.74.236"
+MYSQL_HOST = "localhost"
 MYSQL_USER = "root"
-MYSQL_PASSWORD = "lin2598056"
+MYSQL_PASSWORD = "root"
 MYSQL_PORT = "3306"
-MYSQL_DB = "bolg_database"
+MYSQL_DB = "study"

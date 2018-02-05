@@ -6,3 +6,7 @@ page_build/node_modules/
 log.txt
 python/soar/.scrapy
 python/soar/soar/qidian/img/
+python/web/Include/
+python/web/Lib/
+python/web/Scripts/
+python/web/tcl/

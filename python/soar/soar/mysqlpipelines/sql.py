@@ -47,7 +47,7 @@ class Sql:
 
 	@classmethod
 	def insert_neihan_duanzhi(self,avatar_url,name,content,status_desc,digg_count,comment_count,favorite_count,bury_count,user_id):
-		if not int(digg_count) < 999:
+		if not int(digg_count) < 300:
 			sql = "SELECT content FROM neihan_table WHERE content ='" + content+ "'"
 			try:
 				cur.execute(sql)

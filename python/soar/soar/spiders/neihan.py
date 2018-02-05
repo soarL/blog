@@ -6,14 +6,15 @@ import json
 class ZhihuSipder(scrapy.Spider):
     name = "neihan"
     allowed_domains = ["neihanshequ.com"]
-    baseurl = "http://www.neihanshequ.com/joke/?is_json=1&app_name=neihanshequ_web&max_time="
+    baseurl = "http://m.neihanshequ.com/?_ad0.3823736876999033&skip_guidence=1&is_json=1&app_name=neihanshequ_web&min_time="
+    baseurl2 = "&csrfmiddlewaretoken=f8f2db3ee2bd2ac95c3c82d3b0d98a47"
 
-    timer = 1562714203
+    timer = 1507815164
 
     def start_requests(self):
     	while  True:
 			self.timer = self.timer + 1000
-			url = self.baseurl + str(self.timer)
+			url = self.baseurl + str(self.timer) + self.baseurl2
 			yield Request(url,callback = self.parse)
 
     def parse(self, response):
