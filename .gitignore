@@ -10,3 +10,4 @@ python/web/Include/
 python/web/Lib/
 python/web/Scripts/
 python/web/tcl/
+*.pyc

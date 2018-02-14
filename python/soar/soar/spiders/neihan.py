@@ -9,7 +9,7 @@ class NeiHanSipder(scrapy.Spider):
     baseurl = "http://m.neihanshequ.com/?_ad0.3823736876999033&skip_guidence=1&is_json=1&app_name=neihanshequ_web&min_time="
     baseurl2 = "&csrfmiddlewaretoken=f8f2db3ee2bd2ac95c3c82d3b0d98a47"
 
-    timer = 1607815164
+    timer = 1507815164
 
     def start_requests(self):
     	while  True:
