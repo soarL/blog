@@ -32,16 +32,16 @@ const app = new Koa();
 app.use(bodyParser({formLimit: '20mb'}));
 
 // 跨域设置
-app.use(cors({
-    origin: function (ctx) {
-            return "*"; // 允许来自所有域名请求
-    },
-    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
-    maxAge: 5,
-    credentials: true,
-    allowMethods: ['GET', 'POST', 'DELETE'],
-    allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
-}));
+// app.use(cors({
+//     origin: function (ctx) {
+//             return "*"; // 允许来自所有域名请求
+//     },
+//     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+//     maxAge: 5,
+//     credentials: true,
+//     allowMethods: ['GET', 'POST', 'DELETE'],
+//     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+// }));
 
 
 //获取客户端ip生成日志
