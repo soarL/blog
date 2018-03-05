@@ -6,6 +6,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
 var CleanPlugin = require('clean-webpack-plugin')//webpack插件，用于清除目录文件
 var glob = require('glob');
 var env = config.build.env
